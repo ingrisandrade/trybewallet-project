@@ -1,18 +1,24 @@
 export const ADD_EMAIL = 'ADD_EMAIL'; // action type
-export const ADD_WALLET = 'ADD_WALLET';
+export const RECEIVE_QUOTATION = 'RECEIVE_QUOTATION';
 
-const addEmail = (payload) => ( // actoion creator
+export const addEmail = (payload) => ( // actoion creator
   {
     type: ADD_EMAIL,
     payload,
   }
 );
 
-const addWallet = () => (
+const receiveQuotation = (payload) => (
   {
-    type: ADD_WALLET,
+    type: RECEIVE_QUOTATION,
     payload,
   }
 );
 
-export { addEmail, addWallet };
+export const fetchQuotation = () => async (dispatch) => {
+  const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await response.json();
+  delete data.USDT;
+  const dataArr = Object.keys(data);
+  dispatch(receiveQuotation(dataArr));
+};
