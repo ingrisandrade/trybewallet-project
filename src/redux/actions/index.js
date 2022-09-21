@@ -1,11 +1,19 @@
 export const ADD_EMAIL = 'ADD_EMAIL'; // action type
 export const ADD_WALLET = 'ADD_WALLET';
 export const RECEIVE_QUOTATION = 'RECEIVE_QUOTATION';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const addEmail = (payload) => ( // action creator
   {
     type: ADD_EMAIL,
     payload,
+  }
+);
+
+export const deleteExpense = (id) => (
+  {
+    type: DELETE_EXPENSE,
+    id,
   }
 );
 

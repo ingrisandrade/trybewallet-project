@@ -1,4 +1,4 @@
-import { RECEIVE_QUOTATION, ADD_WALLET } from '../actions';
+import { RECEIVE_QUOTATION, ADD_WALLET, DELETE_EXPENSE } from '../actions';
 
 const initialState = {
   currencies: [],
@@ -33,6 +33,11 @@ const wallet = (state = initialState, action) => {
           },
           0,
         ),
+    };
+  case DELETE_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses.filter((expense) => expense.id !== action.id),
     };
   default:
     return state;
