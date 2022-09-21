@@ -2,7 +2,7 @@ export const ADD_EMAIL = 'ADD_EMAIL'; // action type
 export const ADD_WALLET = 'ADD_WALLET';
 export const RECEIVE_QUOTATION = 'RECEIVE_QUOTATION';
 
-export const addEmail = (payload) => ( // actoion creator
+export const addEmail = (payload) => ( // action creator
   {
     type: ADD_EMAIL,
     payload,
