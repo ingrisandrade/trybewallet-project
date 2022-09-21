@@ -2,6 +2,8 @@ export const ADD_EMAIL = 'ADD_EMAIL'; // action type
 export const ADD_WALLET = 'ADD_WALLET';
 export const RECEIVE_QUOTATION = 'RECEIVE_QUOTATION';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const CHANGE_EXPENSE = 'CHANGE_EXPENSE';
+export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
 
 export const addEmail = (payload) => ( // action creator
   {
@@ -16,6 +18,16 @@ export const deleteExpense = (id) => (
     id,
   }
 );
+
+export const changeExpense = (id) => ({ // ação que ditará qual despesa a ser editada
+  type: CHANGE_EXPENSE,
+  id,
+});
+
+export const updateExpense = (expense) => ({ // ação que irá alterar o estado de fato
+  type: UPDATE_EXPENSE,
+  expense,
+});
 
 const addWallet = (payload) => (
   {
